@@ -1,0 +1,6 @@
+URL="$1"
+if `echo $URL | grep -q youtube`; then
+  mplayer -fs -zoom -cookies -cookies-file $HOME/tmp/ytcookie.txt $(youtube-dl -g --cookies $HOME/tmp/ytcookie.txt $URL)
+else
+  wget -U "Mozilla/5.0 (Windows NT 5.2; rv:2.0.1) Gecko/20100101 Firefox/4.0.1" $URL -O - | mplayer -fs -zoom -cache 8192 - &
+fi
