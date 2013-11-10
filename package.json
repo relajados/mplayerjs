@@ -1,0 +1,10 @@
+{
+    "name": "mplayerjs-server",
+    "version": "0.0.1",
+    "description": "mplayer server",
+    "dependencies": {
+        "socket.io": "latest",
+        "express": "latest"
+    },
+    "author": "https://github.com/relajados"
+}

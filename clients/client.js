@@ -1,10 +1,10 @@
+var uri = process.env.URI || 'https://mplayerjs.herokuapp.com'
+
 var sys = require('sys')
 var exec = require('child_process').exec;
 
 var io = require('socket.io-client');
-var socket = io.connect('https://relajo.herokuapp.com');
-
-console.log("listening...");
+var socket = io.connect(uri);
 
 function puts(error, stdout, stderr) {
   //sys.puts(stdout) 
@@ -31,3 +31,4 @@ socket.on('eval', function(data){
   exec(cmd, puts);
 });
 
+console.log("Connecting to "+ uri);

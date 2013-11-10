@@ -1,5 +1,6 @@
 var port = process.env.PORT || 5000;
 
+var os = require("os");
 var express = require("express");
 var app = express();
 var io = require('socket.io').listen(app.listen(port));
@@ -41,4 +42,4 @@ io.sockets.on('connection', function (socket) {
   });
 });
 
-console.log("Listening on port " + port);
+console.log("Listening on " + os.hostname() + ":" + port);

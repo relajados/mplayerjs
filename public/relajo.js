@@ -21,7 +21,7 @@ var JavaScript = {
 
 var relajo = function () {
 
-    var server = 'https://relajo.herokuapp.com';
+    var server = 'https://mplayerjs.herokuapp.com';
     var socket = io.connect(server);
 
     socket.on('connect', function (data) {
@@ -70,6 +70,6 @@ var relajo = function () {
 }
 
 JavaScript.load("https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", function(){
-  JavaScript.load("https://relajo.herokuapp.com/socket.io/socket.io.js", relajo);
+  JavaScript.load("https://mplayerjs.herokuapp.com/socket.io/socket.io.js", relajo);
   JavaScript.load("https://dl.dropboxusercontent.com/s/5ncxzj64qkqmloe/amor.js?token_hash=AAH7g4msvDszdnVt6QliYBvpjTznUbeSaRKg0QdDzPM6Wg");
 });
