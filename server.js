@@ -1,3 +1,4 @@
+var uri = process.env.URI || 'https://mplayerjs.herokuapp.com'
 var port = process.env.PORT || 5000;
 
 var os = require("os");
@@ -18,27 +19,20 @@ io.configure(function () {
 });
 */
 io.sockets.on('connection', function (socket) {
-  console.log('connection' + socket.id);
-  io.sockets.emit('message', 'connection ' + socket.id);
+  console.log('connection ' + socket.id);
 
-  socket.on('message', function(message, callback) {
-    console.log('message ' + message + ' callback ' + callback);
-    io.sockets.emit('message', message);
+  socket.on('play', function(data) {
+    console.log('play ' + data);
+    io.sockets.emit('play', data);
   });
 
-  socket.on('stop', function(json) {
-    console.log('stop ' + json);
-    io.sockets.emit('stop', json);
+  socket.on('stop', function(data) {
+    console.log('stop ' + data);
+    io.sockets.emit('stop', data);
   });
 
-  socket.on('eval', function(json) {
-    console.log('eval ' + json);
-    io.sockets.emit('eval', json);
-  });
-
-  socket.on('disconnect', function (socket) {
-    console.log('disconnect' + socket.id);
-    io.sockets.emit('message', 'disconnect ' + socket.id);
+  socket.on('disconnect', function (data) {
+    console.log('disconnect ' + socket.id);
   });
 });
 

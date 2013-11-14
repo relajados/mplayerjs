@@ -19,9 +19,8 @@ var JavaScript = {
     }
 };
 
-var relajo = function () {
+var mplayerjs = function (server) {
 
-    var server = 'https://mplayerjs.herokuapp.com';
     var socket = io.connect(server);
 
     socket.on('connect', function (data) {
@@ -44,15 +43,6 @@ var relajo = function () {
         display('error: ' + e);
     });
 
-    socket.on('message', function (message, callback) {
-        display('message: ' + message);
-    });
-
-    socket.on('eval', function (json) {
-        display('eval: ' + json);
-        eval(json);
-    });
-
     socket.on('reconnect_failed', function (e) {
         display('reconnect_failed: ' + e);
         io.connect(server);
@@ -66,10 +56,9 @@ var relajo = function () {
         display('reconnecting: ' + data);
     });
 
-    relajo.socket = socket;
+    mplayerjs.socket = socket; 
 }
 
-JavaScript.load("https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", function(){
-  JavaScript.load("https://mplayerjs.herokuapp.com/socket.io/socket.io.js", relajo);
-  JavaScript.load("https://dl.dropboxusercontent.com/s/5ncxzj64qkqmloe/amor.js?token_hash=AAH7g4msvDszdnVt6QliYBvpjTznUbeSaRKg0QdDzPM6Wg");
-});
+var server = 'http://mplayerjs.herokuapp.com';
+//JavaScript.load("/socket.io/socket.io.js", mplayerjs(server));
+mplayerjs(server);

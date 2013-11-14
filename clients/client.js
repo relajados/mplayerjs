@@ -7,27 +7,22 @@ var io = require('socket.io-client');
 var socket = io.connect(uri);
 
 function puts(error, stdout, stderr) {
-  //sys.puts(stdout) 
+  if(error) console.log(error);
 }
 
 socket.on('connect', function(){
   console.log("connect");
 });
 
-socket.on('message', function(data){
-  console.log("message " + data);
+socket.on('play', function(url){
+  console.log("play", url);
+  var cmd = "./play " + "\"" + url + "\"";
+  exec(cmd, puts);
 });
 
 socket.on('stop', function(data){
   console.log("stop");
   var cmd = "pkill mplayer";
-  exec(cmd, puts);
-});
-
-socket.on('eval', function(data){
-  console.log("eval ", data);
-  var url = data.split('"')[1];
-  var cmd = "./play " + "\"" + url + "\"";
   exec(cmd, puts);
 });
 

@@ -2,16 +2,31 @@
 <html>
 
 <head>
-  <title>Relajo</title>
+  <title>MplayerJS</title>
+  <script>
+    var play = function() {
+      var url = document.getElementsByTagName("input")[0].value;
+      mplayerjs.socket.emit('play', url);
+    }
+    
+    var stop = function() {
+      mplayerjs.socket.emit('stop', 'mplayer');
+    }
+  </script>
 </head>
 
 <body>
 
-<p>Welcome Relajo!</p>
+<p>Welcome mplayerjs!</p>
 
-<p>Drag <a href="javascript:(function(){if(typeof relajo=='undefined'){var s=document.createElement('script');s.setAttribute('src','https://relajo.herokuapp.com/relajo.js?'+Math.random());document.getElementsByTagName('head')[0].appendChild(s);}})();">Relajo</a> bookmarklet to your Bookmarks</p>
+<p>Drag <a href="javascript:(function(){if(typeof mplayerjs=='undefined'){var s=document.createElement('script');s.setAttribute('src','https://mplayerjs.herokuapp.com/mplayerjs.js?'+Math.random());document.getElementsByTagName('head')[0].appendChild(s);}})();">mplayerjs</a> bookmarklet to your Bookmarks</p>
 
-<script src="/relajo.js"></script>
+<input type="text" placeholder="URL to play" value="http://www.ringelkater.de/Sounds/2geraeusche_gegenst/car_chirp.wav" />
+<button type="button" onclick="play()">Play</button>
+<button type="button" onclick="stop()">Stop</button>
+
+<script src="http://mplayerjs.herokuapp.com/socket.io/socket.io.js"></script>
+<script src="http://mplayerjs.herokuapp.com/mplayer.js"></script>
 
 </body>
 </html>
