@@ -1,9 +1,0 @@
-{
-    "name": "mplayerjs-client",
-    "version": "0.0.1",
-    "description": "mplayerjs native client ",
-    "dependencies": {
-        "socket.io-client": "latest"
-    },
-    "author": "https://github.com/relajados"
-}

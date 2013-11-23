@@ -3,7 +3,7 @@
 # This is a example init.d script
 # - Set yours variables
 # - Place this script into /etc/init.d
-# - Add to startup running: sudo update-rc.d mplayerjs defaults
+# - Add to startup running: sudo update-rc.d <SCRIPT NAME> defaults
 
 set -e
 
@@ -11,7 +11,7 @@ NAME="$0"
 PIDFILE=/var/run/$NAME.pid
 USER=ubuntu
 DAEMON=/usr/bin/node
-DAEMON_OPTS="/home/ubuntu/experiment/client.js"
+DAEMON_OPTS="/home/ubuntu/experiment/mplayer.js"
 
 export PATH="${PATH:+$PATH:}/usr/sbin:/sbin"
 

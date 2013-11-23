@@ -15,7 +15,7 @@ socket.on('connect', function(){
 });
 
 socket.on('play', function(url){
-  console.log("play", url);
+  console.log("play " + url);
   var cmd = "./play " + "\"" + url + "\"";
   exec(cmd, puts);
 });

@@ -1,0 +1,11 @@
+{ 
+  "name": "mplayer",
+  "version": "0.0.1",
+  "description": "mplayer web client ", 
+  "author": "Relajados",
+  "devDependencies": {
+    "grunt": "latest",        
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-concat": "latest"
+  } 
+}

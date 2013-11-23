@@ -1,4 +1,7 @@
+#!/usr/bin/env bash
+
 URL="$1"
+
 if `echo $URL | grep -q youtube`; then
   mplayer -fs -zoom -cookies -cookies-file $HOME/tmp/ytcookie.txt $(youtube-dl -g --cookies $HOME/tmp/ytcookie.txt $URL)
 else

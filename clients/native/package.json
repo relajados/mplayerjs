@@ -1,10 +1,9 @@
 {
     "name": "mplayer",
     "version": "0.0.1",
-    "description": "mplayer server",
+    "description": "mplayer native client ",
     "author": "Relajados",
     "dependencies": {
-        "socket.io": "latest",
-        "express": "latest"
+        "socket.io-client": "latest"
     }
 }
